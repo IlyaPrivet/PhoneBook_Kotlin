@@ -7,12 +7,24 @@ data class Person(
 
     fun getName(): String{ return _name }
 
-    fun setPhone(phone: String){ _phone.add(phone) }
+    fun setPhone(phone: String) {
+        if (_phone.contains(phone)) {
+            println("Номер уже добавлен для контакта")
+        } else _phone.add(phone)
+    }
 
-    fun getPhone(): MutableList<String>{ return _phone }
+    fun getPhone(): MutableList<String> {
+        return _phone
+    }
 
-    fun setEmail(email: String) { _email.add(email) }
+    fun setEmail(email: String) {
+        if (_email.contains(email)) {
+            println("Email уже добавлен для контакта")
+        } else _email.add(email)
+    }
 
-    fun getEmail(): MutableList<String>{ return _email }
+    fun getEmail(): MutableList<String> {
+        return _email
+    }
 
     }
