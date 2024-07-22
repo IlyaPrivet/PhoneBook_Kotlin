@@ -4,7 +4,8 @@ class ListOfCommandsC {
     CommandsForConsole.Help(),
     CommandsForConsole.AddPhone(),
     CommandsForConsole.AddEmail(),
-    CommandsForConsole.Show()
+    CommandsForConsole.Show(),
+    CommandsForConsole.Find()
     )
 
     fun getListOfCommands(input: List<String>): Command?{

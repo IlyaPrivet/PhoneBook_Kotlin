@@ -19,4 +19,14 @@ class PhoneBook {
     fun getLastContact(): Person?{
         return _phoneBook.lastOrNull()
     }
+
+    fun getPhoneBook(): MutableList<Person> {
+        return _phoneBook
+    }
+
+    fun findByData(data: String) : MutableList<Person>{
+        return _phoneBook.filter { el ->
+            el.getPhone().contains(data) || el.getEmail().contains(data)
+        }.toMutableList()
+    }
 }
