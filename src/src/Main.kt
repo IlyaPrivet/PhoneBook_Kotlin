@@ -1,4 +1,3 @@
-
 fun main() {
     println("Здравствуйте")
     var phoneBook = PhoneBook()
@@ -17,6 +16,7 @@ fun mainMenu(phoneBook: PhoneBook) {
                 is CommandsForConsole.AddEmail -> option.addEmail(input, phoneBook)
                 is CommandsForConsole.Show -> option.show(input, phoneBook)
                 is CommandsForConsole.Find -> option.find(input, phoneBook)
+                is CommandsForConsole.Export -> option.export(input, phoneBook)
             }
         }
         else CommandsForConsole.Help().help()
@@ -28,7 +28,7 @@ fun readCommand(): Pair<Command?, List<String>> {
 
     var commands = ListOfCommandsC()
     println(textMainMenu)
-    val input = readln().split(" ")
+    val input = readln().trim().split(" ")
     return Pair(commands.getListOfCommands(input), input)
 }
 

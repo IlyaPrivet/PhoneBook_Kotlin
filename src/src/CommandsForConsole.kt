@@ -34,10 +34,6 @@ sealed class CommandsForConsole: Command {
         }
 
         fun addPhone(input: List<String>, phoneBook: PhoneBook){
-//            if (phoneBook.getContact(input[1]) == null){
-//                var person = Person(_name = input[1], _phone = mutableListOf(input[3]), _email = mutableListOf())
-//                phoneBook.addContact(person)
-//            }
             var person = phoneBook.getContact(input[1])
             if (person == null){
                 var newPerson = Person(_name = input[1], _phone = mutableListOf(input[3]), _email = mutableListOf())
@@ -90,6 +86,15 @@ sealed class CommandsForConsole: Command {
                 if (result.isNotEmpty()) result.forEach { el -> println(el) }
                 else println("Ничего не найдено.")
             }
+        }
+    }
+
+    class Export() : CommandsForConsole(){
+        override fun isValid(input: List<String>): Boolean {
+            return input[0].lowercase() == "export"
+        }
+        fun export(input: List<String>, phoneBook: PhoneBook){
+            DslJson().exportToJson(phoneBook, input[1])
         }
     }
 }

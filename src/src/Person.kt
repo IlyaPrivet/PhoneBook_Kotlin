@@ -10,7 +10,10 @@ data class Person(
     fun setPhone(phone: String) {
         if (_phone.contains(phone)) {
             println("Номер уже добавлен для контакта")
-        } else _phone.add(phone)
+        } else {
+            _phone.add(phone)
+            println("Номер добавлен для ${this._name}")
+        }
     }
 
     fun getPhone(): MutableList<String> {
@@ -20,7 +23,10 @@ data class Person(
     fun setEmail(email: String) {
         if (_email.contains(email)) {
             println("Email уже добавлен для контакта")
-        } else _email.add(email)
+        } else {
+            _email.add(email)
+            println("Email добавлен для ${this._name}")
+        }
     }
 
     fun getEmail(): MutableList<String> {
